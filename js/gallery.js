@@ -46,8 +46,9 @@ function modalOpen(event) {
 
 function modalClose(event) {
     modal.classList.remove("is-open");
-    overlay.removeEventListener("click", modalCloseByOverlayClick);
-    document.removeEventListener("keydown", modalCloseByEsc);
+    modalImg.src="";
+    overlay.removeEventListener("click", modalClose);
+    document.removeEventListener("keydown", modalClose);
     modalBtnClose.removeEventListener('click', modalClose);
     window.removeEventListener("keydown", modalImgScrolling);
     modalBtnRight.removeEventListener("click", modalImgScrolling);
@@ -60,13 +61,6 @@ function modalCloseByEsc(event) {
         modalClose(event)        
     }
 };
-
-function modalCloseByOverlayClick(event) {
-    if (event.currentTarget === event.target) {
-        modalClose(event)      
-    }
-};
-
 
 function modalImgScrolling(event) {
 
