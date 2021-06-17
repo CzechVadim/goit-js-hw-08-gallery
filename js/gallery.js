@@ -35,8 +35,8 @@ function modalOpen(event) {
     modal.classList.add("is-open");
     modalImg.src = event.target.dataset.source;
     modalImg.alt = event.target.alt;
-    overlay.addEventListener("click", modalCloseByOverlayClick);
-    document.addEventListener("keydown", modalCloseByEsc);
+    overlay.addEventListener("click", modalClose);
+    document.addEventListener("keydown", modalClose);
     modalBtnClose.addEventListener('click', modalClose);
      window.addEventListener("keydown", modalImgScrolling);
     modalBtnRight.addEventListener("click", modalImgScrolling);
@@ -47,8 +47,8 @@ function modalOpen(event) {
 function modalClose(event) {
     modal.classList.remove("is-open");
     modalImg.src="";
-    overlay.removeEventListener("click", modalClose);
-    document.removeEventListener("keydown", modalClose);
+    overlay.removeEventListener("click", modalCloseByOverlayClick);
+    document.removeEventListener("keydown", modalCloseByEsc);
     modalBtnClose.removeEventListener('click', modalClose);
     window.removeEventListener("keydown", modalImgScrolling);
     modalBtnRight.removeEventListener("click", modalImgScrolling);
